@@ -39,6 +39,14 @@ footer{
     padding: 1em 2em 3em 2em;
 }
 
+footer .back{
+    float: left;
+}
+
+footer .next{
+    float: right;
+}
+
 /*
 article a :hover{
     color: green;
