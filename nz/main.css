@@ -4,6 +4,15 @@ body {
     background-color: silver;
 }
 
+header{
+    text-align: center;
+}
+
+img.user{/* da gehts um Klassen */
+border-radius: 50%;
+}
+
+
 main {
     background-color: white;
     max-width: 1024px;
