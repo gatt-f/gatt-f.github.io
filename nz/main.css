@@ -16,4 +16,5 @@ article{
 
 article p {
     text-align: justify; /* alle Absätze im Blocksatz*/
+    line-height: 1.2em;
 }
