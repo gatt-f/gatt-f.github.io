@@ -4,17 +4,28 @@ body {
     background-color: silver;
 }
 
-main{
+main {
     background-color: white;
     max-width: 1024px;
     margin: auto;
 }
 
-article{
+article {
     padding: 1em;
 }
 
 article p {
-    text-align: justify; /* alle Absätze im Blocksatz*/
+    text-align: justify;
+    /* alle Absätze im Blocksatz*/
     line-height: 1.2em;
 }
+
+a {
+    color: black;
+}
+
+/*
+article a :hover{
+    color: green;
+    font-size: 20px;
+}*/
