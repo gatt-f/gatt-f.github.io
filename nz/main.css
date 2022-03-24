@@ -13,6 +13,9 @@ border-radius: 50%;
 margin-top: -50px;
 }
 
+img.banner{/* da gehts um Klassen */
+    width: 100%;
+    }
 
 main {
     background-color: white;
