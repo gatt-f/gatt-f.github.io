@@ -10,6 +10,7 @@ header{
 
 img.user{/* da gehts um Klassen */
 border-radius: 50%;
+margin-top: -50px;
 }
 
 
