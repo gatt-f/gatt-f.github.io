@@ -37,6 +37,12 @@ main {
     margin: auto;
 }
 
+#map {
+    width: 100%;
+    height: 600px;
+    border: 1px solid gray;
+}
+
 article {
     padding: 1em;
 }
