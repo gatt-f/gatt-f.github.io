@@ -12,7 +12,7 @@ console.log(coords);
 console.log(coords[0]);
 console.log(coords[1]);
 console.log(coords.length);
-console.log(ETAPPEN);
+console.log(ETAPPEN); // gibt Objekte in {} aus
 
 console.log(""); // Unterschied
 console.log('');
