@@ -56,6 +56,8 @@ for (let etappe of ETAPPEN) {
 </ul>`;
     //Huts einbinden
     L.marker([etappe.lat, etappe.lng]).addTo(map).bindPopup(popup);
+
+    // Etappennavigation erweitern
 }
 //console.log(etappe);
 
