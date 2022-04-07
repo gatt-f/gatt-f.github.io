@@ -80,7 +80,18 @@ footer .next {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
+.etappenLink{
+    background: white;
+    border: 1px solid black;
+    padding: 0.5em;
+    width: 2em;
+    text-align: center;
+    display: block;
+}
+
 /*
+. dann wird eine eigene Klasse erstellt
+
 article a :hover{
     color: green;
     font-size: 20px;
