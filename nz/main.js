@@ -33,8 +33,7 @@ let popup = `
     <li>geogr. Breite ${ETAPPEN[0].lat}</li>
     <li><a href="${ETAPPEN[0].wikipedia}">Link zur Wikipediaseite</a> </li>
     <li><a href="${ETAPPEN[0].github}">Link zur Etappenseite</a></li>
-</ul>`
-;
+</ul>`;
 
 let map = L.map('map').setView(coords, zoom);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -45,16 +44,23 @@ L.marker([lat, lng]).addTo(map)
     .bindPopup(popup)
     .openPopup();
 
-for(let etappe of ETAPPEN) {
+//Etappen einbinden
+for (let etappe of ETAPPEN) {
     let popup = `
-<h3>${etappe.titel} (Etappe ${etappe.nr}</h3>
+<h3>${etappe.titel} (Etappe ${etappe.nr})</h3>
 <ul>
     <li>geogr. Länge: ${etappe.lng}</li>
     <li>geogr. Breite ${etappe.lat}</li>
     <li><a href="${etappe.wikipedia}">Link zur Wikipediaseite</a> </li>
     <li><a href="https://${etappe.github}.github.io/nz/">Link zur Etappenseite</a></li>
-</ul>`
-;
-    //console.log(etappe);
+</ul>`;
+    //Huts einbinden
     L.marker([etappe.lat, etappe.lng]).addTo(map).bindPopup(popup);
+}
+//console.log(etappe);
+
+// Huts-Marker einfügen
+for (let huts of HUTS) {
+    L.marker([huts.lat, huts.lng]).addTo(map).bindPopup(popup);
+
 }
