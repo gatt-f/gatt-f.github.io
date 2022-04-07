@@ -13,6 +13,13 @@ console.log(coords[0]);
 console.log(coords[1]);
 console.log(coords.length);
 console.log(ETAPPEN); // gibt Objekte in {} aus
+console.log(ETAPPEN[0]); // Objekte innerhalb eines Arrays ansprechen
+console.log(ETAPPEN[0].nr);
+console.log(ETAPPEN[0].github);
+console.log(ETAPPEN[0].titel);
+console.log(ETAPPEN[0].wikipedia);
+console.log(ETAPPEN[0].lat);
+console.log(ETAPPEN[0].lng);
 
 console.log(""); // Unterschied
 console.log('');
@@ -20,10 +27,10 @@ console.log('id="map"'); // Grund für verschiedene Anführungszeichen
 console.log(`latitude = ${lat}`); // Backticks durch Shift + Taste neben Clear erhalten // Durch $ kann man Variablen auflösen
 
 let popup = `
-<h3>Christchurch</h3>
+<h3>${ETAPPEN[0].titel}</h3>
 <ul>
-    <li>geogr. Länge: ${lng}</li>
-    <li>geogr. Breite ${lat}</li>
+    <li>geogr. Länge: ${ETAPPEN[0].lng}</li>
+    <li>geogr. Breite ${ETAPPEN[0].lat}</li>
 </ul>`
 ;
 
