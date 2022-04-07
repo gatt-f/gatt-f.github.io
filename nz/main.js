@@ -27,7 +27,7 @@ let coords = [-43.531111, 172.636667];
 //console.log(`latitude = ${lat}`); // Backticks durch Shift + Taste neben Clear erhalten // Durch $ kann man Variablen auflösen
 
 let popup = `
-<h3>${ETAPPEN[0].titel} (Etappe ${ETAPPEN[0].nr}</h3>
+<h3>${ETAPPEN[0].titel} (Etappe ${ETAPPEN[0].nr})</h3>
 <ul>
     <li>geogr. Länge: ${ETAPPEN[0].lng}</li>
     <li>geogr. Breite ${ETAPPEN[0].lat}</li>
