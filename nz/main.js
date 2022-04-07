@@ -61,6 +61,5 @@ for (let etappe of ETAPPEN) {
 
 // Huts-Marker einfügen
 for (let huts of HUTS) {
-    L.marker([huts.lat, huts.lng]).addTo(map).bindPopup(popup);
-
+    L.circleMarker([huts.lat, huts.lng]).addTo(map).bindPopup(popup);
 }
