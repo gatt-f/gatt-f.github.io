@@ -50,7 +50,7 @@ for (let etappe of ETAPPEN) {
 <h3>${etappe.titel} (Etappe ${etappe.nr})</h3>
 <ul>
     <li>geogr. Länge: ${etappe.lng}</li>
-    <li>geogr. Breite ${etappe.lat}</li>
+    <li>geogr. Breite: ${etappe.lat}</li>
     <li><a href="${etappe.wikipedia}">Link zur Wikipediaseite</a> </li>
     <li><a href="https://${etappe.github}.github.io/nz/">Link zur Etappenseite</a></li>
 </ul>`;
