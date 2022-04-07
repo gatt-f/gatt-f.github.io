@@ -52,7 +52,7 @@ for(let etappe of ETAPPEN) {
     <li>geogr. Länge: ${etappe.lng}</li>
     <li>geogr. Breite ${etappe.lat}</li>
     <li><a href="${etappe.wikipedia}">Link zur Wikipediaseite</a> </li>
-    <li><a href="${etappe.github}">Link zur Etappenseite</a></li>
+    <li><a href="https://${etappe.github}.github.io/nz/">Link zur Etappenseite</a></li>
 </ul>`
 ;
     //console.log(etappe);
