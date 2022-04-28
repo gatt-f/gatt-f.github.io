@@ -43,16 +43,16 @@ for (let etappe of ETAPPEN) {
 </ul>`;
     //Huts einbinden
     let mrk = L.marker([etappe.lat, etappe.lng]).addTo(map).bindPopup(popup);
+    let navClass = "etappenLink";
 
     if(etappe.nr == 1)
     {
         mrk.openPopup();
+        navClass = "etappenLink etappeAktuell";
     }
 
-
-
     // Etappennavigation erweitern
-    let link = `<a href="https://${etappe.github}.github.io/nz/" class = "etappenLink" title = "${etappe.titel}">${etappe.nr}</a>`;
+    let link = `<a href="https://${etappe.github}.github.io/nz/" class = "${navClass}" title = "${etappe.titel}">${etappe.nr}</a>`;
     document.querySelector("#navigation").innerHTML += link;
 }
 //console.log(etappe);

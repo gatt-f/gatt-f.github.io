@@ -90,6 +90,13 @@ footer .next {
     display: inline-block;
 }
 
+.etappeAktuell{
+    background: silver;
+    color: white;
+    text-decoration: none;
+    pointer-events: none;
+}
+
 /*
 . dann wird eine eigene Klasse erstellt
 
