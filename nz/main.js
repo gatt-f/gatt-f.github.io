@@ -77,6 +77,7 @@ for (let hut of HUTS) {
     }
 
     L.circleMarker([hut.lat, hut.lng], {
-        color: statusColor
+        color: statusColor,
+        radius: 50,
     }).addTo(map).bindPopup(popup);
 }
