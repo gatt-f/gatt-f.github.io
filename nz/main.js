@@ -81,3 +81,48 @@ for (let hut of HUTS) {
         radius: 50,
     }).addTo(map).bindPopup(popup);
 }
+
+// Workload 5:
+
+// Massstab einbinden
+L.control.scale({
+    imperial: false,
+}).addTo(map);
+
+// Fullscreen-Funktion hinzugefügt
+L.control.fullscreen().addTo(map);
+
+// Mini-Map einbinden
+let miniMap = new L.Control.MiniMap(
+    L.tileLayer.provider("Jawg.Terrain")
+).addTo(map);
+
+let startLayer = L.tileLayer.provider("Jawg.Terrain.grau");
+
+let layerControl = L.control.layers({
+    "Jawg Terrain": startLayer,
+    "Basemap Standard": L.tileLayer.provider("BasemapAT.basemap"),
+ /*   "Basemap High-DPI": L.tileLayer.provider("BasemapAT.highdpi"),
+    "Basemap Gelände": L.tileLayer.provider("BasemapAT.terrain"),
+    "Basemap Oberfläche": L.tileLayer.provider("BasemapAT.surface"),
+    "Basemap Orthophoto": L.tileLayer.provider("BasemapAT.orthofoto"),
+    "Basemap Beschriftung": L.tileLayer.provider("BasemapAT.overlay"),
+
+    "Basemap mit Orthophoto und Beschriftung": L.layerGroup([
+        L.tileLayer.provider("BasemapAT.orthofoto"),
+        L.tileLayer.provider("BasemapAT.overlay"),
+    ]),
+    */
+}).addTo(map);
+
+layerControl.expand();
+
+/*
+let sightLayer = L.featureGroup();
+
+layerControl.addOverlay(sightLayer, "Sehenswürdigkeiten");
+
+let mrk = L.marker([stephansdom.lat, stephansdom.lng]).addTo(sightLayer);
+
+sightLayer.addTo(map); */
+;
