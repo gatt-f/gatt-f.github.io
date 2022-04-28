@@ -2,8 +2,6 @@
 // Einzeiliger Kommentar
 
 // durch Variablen ersetzen
-let lat = -43.531111;
-let lng = 172.636667;
 let zoom = 9;
 
 // durch Arrays ersetzen
@@ -26,23 +24,10 @@ let coords = [-43.531111, 172.636667];
 //console.log('id="map"'); // Grund für verschiedene Anführungszeichen
 //console.log(`latitude = ${lat}`); // Backticks durch Shift + Taste neben Clear erhalten // Durch $ kann man Variablen auflösen
 
-let popup = `
-<h3>${ETAPPEN[0].titel} (Etappe ${ETAPPEN[0].nr})</h3>
-<ul>
-    <li>geogr. Länge: ${ETAPPEN[0].lng}</li>
-    <li>geogr. Breite: ${ETAPPEN[0].lat}</li>
-    <li><a href="${ETAPPEN[0].wikipedia}">Link zur Wikipediaseite</a> </li>
-    <li><a href="${ETAPPEN[0].github}">Link zur Etappenseite</a></li>
-</ul>`;
-
 let map = L.map('map').setView(coords, zoom);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-
-L.marker([lat, lng]).addTo(map)
-    .bindPopup(popup)
-    .openPopup();
 
 //Etappen einbinden
 for (let etappe of ETAPPEN) {
