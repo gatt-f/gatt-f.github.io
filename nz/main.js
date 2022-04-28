@@ -5,7 +5,9 @@
 let zoom = 9;
 
 // durch Arrays ersetzen
-let coords = [-43.531111, 172.636667];
+let coords = 
+[ETAPPEN[0].lat, 
+ETAPPEN[0].lng];
 //console.log(coords);
 //console.log(coords[0]);
 //console.log(coords[1]);
