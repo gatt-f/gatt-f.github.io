@@ -5,33 +5,33 @@
 let zoom = 9;
 
 // durch Arrays ersetzen
-let coords = 
-[ETAPPEN[0].lat, 
-ETAPPEN[0].lng];
-//console.log(coords);
-//console.log(coords[0]);
-//console.log(coords[1]);
-//console.log(coords.length);
-//console.log(ETAPPEN); // gibt Objekte in {} aus
-//console.log(ETAPPEN[0]); // Objekte innerhalb eines Arrays ansprechen
-//console.log(ETAPPEN[0].nr);
-//console.log(ETAPPEN[0].github);
-//console.log(ETAPPEN[0].titel);
-//console.log(ETAPPEN[0].wikipedia);
-//console.log(ETAPPEN[0].lat);
-//console.log(ETAPPEN[0].lng);
+let coords = [ETAPPEN[0].lat,
+    ETAPPEN[0].lng
+];
+// console.log(coords);
+// console.log(coords[0]);
+// console.log(coords[1]);
+// console.log(coords.length);
+// console.log(ETAPPEN); // gibt Objekte in {} aus
+// console.log(ETAPPEN[0]); // Objekte innerhalb eines Arrays ansprechen
+// console.log(ETAPPEN[0].nr);
+// console.log(ETAPPEN[0].github);
+// console.log(ETAPPEN[0].titel);
+// console.log(ETAPPEN[0].wikipedia);
+// console.log(ETAPPEN[0].lat);
+// console.log(ETAPPEN[0].lng);
 
-//console.log(""); // Unterschied
-//console.log('');
-//console.log('id="map"'); // Grund für verschiedene Anführungszeichen
-//console.log(`latitude = ${lat}`); // Backticks durch Shift + Taste neben Clear erhalten // Durch $ kann man Variablen auflösen
+// console.log(""); // Unterschied
+// console.log('');
+// console.log('id="map"'); // Grund für verschiedene Anführungszeichen
+// console.log(`latitude = ${lat}`); // Backticks durch Shift + Taste neben Clear erhalten // Durch $ kann man Variablen auflösen
 
 let map = L.map('map').setView(coords, zoom);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-//Etappen einbinden
+// Etappen einbinden
 for (let etappe of ETAPPEN) {
     let popup = `
 <h3>${etappe.titel} (Etappe ${etappe.nr})</h3>
@@ -41,12 +41,11 @@ for (let etappe of ETAPPEN) {
     <li><a href="${etappe.wikipedia}">Link zur Wikipediaseite</a> </li>
     <li><a href="https://${etappe.github}.github.io/nz/">Link zur Etappenseite</a></li>
 </ul>`;
-    //Huts einbinden
+    // Huts einbinden
     let mrk = L.marker([etappe.lat, etappe.lng]).addTo(map).bindPopup(popup);
     let navClass = "etappenLink";
 
-    if(etappe.nr == 1)
-    {
+    if (etappe.nr == 1) {
         mrk.openPopup();
         navClass = "etappenLink etappeAktuell";
     }
@@ -55,7 +54,7 @@ for (let etappe of ETAPPEN) {
     let link = `<a href="https://${etappe.github}.github.io/nz/" class = "${navClass}" title = "${etappe.titel}">${etappe.nr}</a>`;
     document.querySelector("#navigation").innerHTML += link;
 }
-//console.log(etappe);
+// console.log(etappe);
 
 // Huts-Marker einfügen
 for (let hut of HUTS) {
@@ -70,7 +69,7 @@ for (let hut of HUTS) {
     `;
 
     let statusColor;
-    if(hut.open == true){
+    if (hut.open == true) {
         statusColor = "green";
     } else {
         statusColor = "red";
@@ -94,35 +93,18 @@ L.control.fullscreen().addTo(map);
 
 // Mini-Map einbinden
 let miniMap = new L.Control.MiniMap(
-    L.tileLayer.provider("Jawg.Terrain")
+    L.tileLayer.provider("OpenTopoMap")
 ).addTo(map);
 
-let startLayer = L.tileLayer.provider("Jawg.Terrain.grau");
+// Startlayer definieren
+let startLayer = L.tileLayer.provider("OpenStreetMap");
 
+// Layer hinzufügen
 let layerControl = L.control.layers({
-    "Jawg Terrain": startLayer,
-    "Basemap Standard": L.tileLayer.provider("BasemapAT.basemap"),
- /*   "Basemap High-DPI": L.tileLayer.provider("BasemapAT.highdpi"),
-    "Basemap Gelände": L.tileLayer.provider("BasemapAT.terrain"),
-    "Basemap Oberfläche": L.tileLayer.provider("BasemapAT.surface"),
-    "Basemap Orthophoto": L.tileLayer.provider("BasemapAT.orthofoto"),
-    "Basemap Beschriftung": L.tileLayer.provider("BasemapAT.overlay"),
-
-    "Basemap mit Orthophoto und Beschriftung": L.layerGroup([
-        L.tileLayer.provider("BasemapAT.orthofoto"),
-        L.tileLayer.provider("BasemapAT.overlay"),
-    ]),
-    */
+    "OpenStreetMap": startLayer,
+    "SmoothDark": L.tileLayer.provider("Stadia.AlidadeSmoothDark"),
+    "Watercolour": L.tileLayer.provider("Stamen.Watercolor"),
+    "OpenTopoMap": L.tileLayer.provider("OpenTopoMap"),
 }).addTo(map);
 
-layerControl.expand();
-
-/*
-let sightLayer = L.featureGroup();
-
-layerControl.addOverlay(sightLayer, "Sehenswürdigkeiten");
-
-let mrk = L.marker([stephansdom.lat, stephansdom.lng]).addTo(sightLayer);
-
-sightLayer.addTo(map); */
-;
+layerControl.expand();;
