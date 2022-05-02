@@ -102,8 +102,8 @@ let startLayer = L.tileLayer.provider("OpenStreetMap");
 // Layer hinzufügen
 let layerControl = L.control.layers({
     "OpenStreetMap": startLayer,
-    "SmoothDark": L.tileLayer.provider("Stadia.AlidadeSmoothDark"),
-    "Watercolour": L.tileLayer.provider("Stamen.Watercolor"),
+    "EsriWorldImagery": L.tileLayer.provider("Esri.WorldImagery"),
+    "StamenWatercolour": L.tileLayer.provider("Stamen.Watercolor"),
     "OpenTopoMap": L.tileLayer.provider("OpenTopoMap"),
 }).addTo(map);
 
