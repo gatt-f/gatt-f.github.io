@@ -93,7 +93,7 @@ L.control.fullscreen().addTo(map);
 
 // Mini-Map einbinden
 let miniMap = new L.Control.MiniMap(
-    L.tileLayer.provider("OpenTopoMap")
+    L.tileLayer.provider("OpenTopoMap"), {toggleDisplay: true}
 ).addTo(map);
 
 // Startlayer definieren
