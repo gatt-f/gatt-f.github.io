@@ -26,10 +26,31 @@ let coords = [ETAPPEN[0].lat,
 // console.log('id="map"'); // Grund für verschiedene Anführungszeichen
 // console.log(`latitude = ${lat}`); // Backticks durch Shift + Taste neben Clear erhalten // Durch $ kann man Variablen auflösen
 
-let map = L.map('map').setView(coords, zoom);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+// Startlayer definieren
+let startLayer = L.tileLayer.provider("OpenStreetMap");
+// Startlayer laut Feedback vom 05.05.2022 oberhalb von L.map definiert, dadurch Einbindungn in L.map möglich:
+
+let map = L.map('map', {
+    center: coords,
+    zoom: zoom,
+    layers: [
+        startLayer
+    ],
+});
+
+// Layer hinzufügen
+let layerControl = L.control.layers({
+    "OpenStreetMap": startLayer,
+    "EsriWorldImagery": L.tileLayer.provider("Esri.WorldImagery"),
+    "StamenWatercolour": L.tileLayer.provider("Stamen.Watercolor"),
+    "OpenTopoMap": L.tileLayer.provider("OpenTopoMap"),
 }).addTo(map);
+//layerControl.expand();
+
+//let map = L.map('map').setView(coords, zoom);
+//.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//}).addTo(map);
 
 // Etappen einbinden
 for (let etappe of ETAPPEN) {
@@ -97,16 +118,3 @@ let miniMap = new L.Control.MiniMap(
         toggleDisplay: true
     }
 ).addTo(map);
-
-// Startlayer definieren
-let startLayer = L.tileLayer.provider("OpenStreetMap");
-
-// Layer hinzufügen
-let layerControl = L.control.layers({
-    "OpenStreetMap": startLayer,
-    "EsriWorldImagery": L.tileLayer.provider("Esri.WorldImagery"),
-    "StamenWatercolour": L.tileLayer.provider("Stamen.Watercolor"),
-    "OpenTopoMap": L.tileLayer.provider("OpenTopoMap"),
-}).addTo(map);
-
-layerControl.expand();;
